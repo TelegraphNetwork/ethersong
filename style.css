@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #fff;
+}
+.title h1 {
+  font-weight: 100;
+  font-size: 3rem;
+}
+.site {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: #222;
+}
+.site main {
+  flex: 1;
+  position: relative;
+}
+.box {
+  margin: 0.5rem 1.5rem;
+}
+.box input, .box audio {
+  display: none;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.spectrum {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  filter: url("#goo");
+  box-sizing: border-box;
+  transform: translateZ(0) ;
+  position: relative;
+  bottom: -200px;
+  height: 400px;
+}
+.spectrum .bar {
+  background-color: #FABF2C;
+  flex: 1 1 auto;
+  height: 50px;
+  transform: translateZ(0);
+  will-change: transform;
+  box-shadow: 0 0 0 2px #222;
+}
