@@ -1,14 +1,14 @@
 var visualWidth = 318,
-  visualHeight = 100,
-  audioCtx = new window.AudioContext(),
-  analyser = audioCtx.createAnalyser();
+    visualHeight = 100,
+    audioCtx = new window.AudioContext(),
+    analyser = audioCtx.createAnalyser();
 
 analyser.fftSize = 2048;
 analyser.minDecibels = -90;
 analyser.maxDecibels = 0;
 
 var bufferLength = analyser.frequencyBinCount,
-  frequencyData = new Uint8Array(bufferLength);
+    frequencyData = new Uint8Array(bufferLength);
 
 var bars = [];
 
@@ -20,9 +20,9 @@ var ScaleBar = {
   min: 10,
   max: visualHeight,
   sum: 0,
-  get: function (fromMin, fromMax, valueIn) {
+  get: function(fromMin, fromMax, valueIn) {
     var toMin = ScaleBar.min,
-      toMax = ScaleBar.max;
+        toMax = ScaleBar.max;
     var result = ((toMax - toMin) * (valueIn - fromMin)) / (fromMax - fromMin) + toMin;
     return result;
   }
@@ -30,7 +30,7 @@ var ScaleBar = {
 
 var MusicVisuals = {
   call: null,
-  start: function () {
+  start: function() {
     analyser.getByteFrequencyData(frequencyData);
 
     var barcc = 0;
@@ -41,36 +41,37 @@ var MusicVisuals = {
     var max = Math.max.apply(Math, frequencyData);
     var k = max - min;
 
-
+    
     for (var i = 0; i < numberOfBars * 2; i += 2) {
       var y = frequencyData[i];
       y = (y - min ) / k * 8 + .5;
-
+      
       barcc++;
-
+      
       if (barcc > numberOfBars) {
         barcc = 0;
       }
-
+      
       var bar = bars[barcc];
-
+      
       if (bar) {
         bar.style.transform = "scaleY(" + y + ')';
       }
     }
-
+    
     MusicVisuals.call = requestAnimationFrame(MusicVisuals.start);
   }
 };
 
 
+
 MusicVisuals.start();
+
 
 
 let k = 4430000;
 let bufferSize = 4096;
 let whiteNoise = audioCtx.createScriptProcessor(bufferSize, 1, 1);
-
 let last_data = [];
 let last_check = 0;
 
@@ -116,11 +117,11 @@ function parseHexString(str) {
 
     str = str.substring(8, str.length);
   }
-
   return result;
 }
 
-longToByteArray = function (long) {
+longToByteArray = function (/*long*/long) {
+// we want to represent the input as a 8-bytes array
   let byteArray = [0, 0, 0, 0, 0, 0, 0, 0];
 
   for (let index = 0; index < byteArray.length; index++) {
@@ -131,13 +132,3 @@ longToByteArray = function (long) {
 
   return byteArray;
 };
-
-
-
-
-
-
-
-
-
-
