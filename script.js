@@ -76,10 +76,15 @@ let fetchInProgress = false;
 
 whiteNoise.onaudioprocess = function (e) {
   let output = e.outputBuffer.getChannelData(0);
+  if (fetchInProgress) return;
   console.log('Start fetching block #' + k);
+  fetchInProgress = true;
   $.getJSON('https://api.etherscan.io/api?module=proxy&action=eth_getBlockByNumber&tag=' + k.toString(16) + '&boolean=true&apiKey=PUI5KF35AIYZ5S4Q7FHPAKATWB2DX3CBG1', function (data) {
     data = data.result;
-    if (Date.now() - last_check < 500) return;
+    if (Date.now() - last_check < 500) {
+      fetchInProgress = false;
+      return;
+    }
     console.log('fetched block #', k, 'at', new Date());
     last_check = Date.now();
     if (data === null) return;
