@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listen to blockchain</title>
+    <title>Listen to the blockchain </title>
     <link rel="stylesheet" href="style.css?v=3.0.0">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./img/favicon.png" /> 
+
+      <meta name="description" content="Listen to the blockchain. The sound you hear is a raw conversion of latest Ethereum transactions into sound." /> 
+      <meta property="og:url"                content="http://telegraphcoin.com/listen" /> 
+      <meta property="og:type"               content="website" />
+      <meta property="og:title"              content="Listen to the blockchain" />  
+      <meta property="og:description"        content="Listen to the blockchain. The sound you hear is a raw conversion of latest Ethereum transactions into sound." /> 
+      <meta property="og:image"              content="./img/ethersongpromo.jpg" /> 
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107704600-1"></script>
 
@@ -205,7 +214,7 @@
 
     <footer class="footer">
         <p class="footer__title">
-            We'll give it a voice soon
+            We'll give it a voice.
         </p>
         <div class="footer__social">
             <span class="footer__label">share :</span>
@@ -238,10 +247,46 @@
     <!--<div class="fb-comments" data-href="http://telegraphcoin.com/listen" data-numposts="5"></div>-->
 <!--</div>-->
 
+
+<div class="pass-wrap">
+    <form class="pass">
+        <label for="password">Are you the Choosen One?</label>
+        <input placeholder="Please type a password" id="password" type="password">
+        <button>Enter</button>
+    </form>
+</div>
+<script>
+    
+
+    (function(){
+      var passForm = document.querySelector('.pass');
+      var password = document.getElementById('password');
+      var button = document.querySelector('.pass button');
+      var body = document.body;
+
+      passForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        if (password.value == 'yes') {
+          passForm.parentElement.style.display = 'none';
+          password.classList.remove('warning');
+          body.classList.add('unfix');
+        } else {
+            password.value = '';
+            button.classList.add('warning');
+            body.classList.remove('unfix');
+    }
+      });
+    })();
+
+
+    
+</script>
+
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
 
 <script src="script.js"></script>
+
 </body>
 </html>
