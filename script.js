@@ -1,6 +1,6 @@
 var visualWidth = 318,
   visualHeight = 100,
-  audioCtx = new window.AudioContext(),
+  audioCtx = new window.AudioContext || window.webkitAudioContext,
   analyser = audioCtx.createAnalyser();
 
 analyser.fftSize = 2048;
