@@ -75,11 +75,22 @@ body.unfix {
   right: 0;
   bottom: 0;
   height: 100vh;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   font-weight: nowrap;
   min-width: 320px;
+  display: none;
+  opacity: 0;
+  transition: all .3s;
+}
+
+
+.equalizer--flex {
+  display: flex;
+}
+
+.equalizer--opaq {
+  opacity: 1;
 }
 
 .spectrum {
@@ -93,8 +104,6 @@ body.unfix {
   margin-bottom: 180px;
   min-width: 320px;
 }
-
-
 
 .spectrum .bar {
   background-color: #FABF2C;
@@ -244,9 +253,6 @@ body.unfix {
 
 
 
-
-
-
  /*-------PASS----------- */
 
 
@@ -352,4 +358,31 @@ body.unfix {
   left: 0;
   width: 100%;
   color: #FABF2C;
+}
+
+.play {
+  border: 1px solid #FABF2C;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 18px;
+  font-family: 'Poppins', Helvetica, Arial, sans-serif;
+  width: 400px;
+  height: 100px;
+  line-height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all .3s;
+  margin-top: 20px;
+}
+
+.play:hover {
+  background-color: #FABF2C;
+  color: #000;
+}
+
+.play--invisible {
+  opacity: 0;
 }

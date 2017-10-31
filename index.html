@@ -214,6 +214,9 @@
     </div>
 
 
+    <button class="play">Start Listening</button>
+
+
     <footer class="footer">
         <p class="footer__title">
             We'll give it a voice.
@@ -273,7 +276,6 @@
         passForm.parentElement.style.display = 'none';
         password.classList.remove('warning');
         body.classList.add('unfix');
-        startSong();
       } else {
         password.value = '';
         button.classList.add('warning');
@@ -287,7 +289,8 @@
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+</script>
 
 
 </body>

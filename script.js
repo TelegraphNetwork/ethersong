@@ -1,3 +1,22 @@
+var playBtn = document.querySelector('.play'),
+    equalizer = document.querySelector('.equalizer');
+
+
+
+playBtn.addEventListener('click', function() {
+  this.classList.add('play--invisible');
+  equalizer.classList.add('equalizer--flex');
+
+  setTimeout( function() {
+    playBtn.style.display = "none";
+    equalizer.classList.add('equalizer--opaq');
+  }, 500);
+  
+  startSong();
+
+})
+
+
 function startSong() {
   var visualWidth = 318,
     visualHeight = 100,
